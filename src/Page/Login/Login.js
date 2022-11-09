@@ -1,14 +1,61 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
+import { AuthContext } from '../../Contexts/AuthProvider';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 
 const Login = () => {
+
+     const {lgoinAccountWithEmail,
+           createUserWithGoogle,
+
+            createUserWithGithub} = useContext(AuthContext)
+
+     const googleProvider =new GoogleAuthProvider();
+     const githubProvider = new GithubAuthProvider();
+
+     const navigate = useNavigate()
+
+     const singInHandler = (event)=>{
+          event.preventDefault();
+          const form = event.target;
+          const email = form.email.value;
+          const password = form.password.value;
+
+          lgoinAccountWithEmail(email, password)
+          .then(result => {
+               const user = result.user;
+               console.log(user)
+               navigate('/')
+               alert('login success')
+          })
+          .catch(error => console.error(error));
+     }
+
+     const googleHandler = ()=>{
+          createUserWithGoogle(googleProvider)
+          .then(result =>{
+               const user = result.user;
+               console.log(user)
+          })
+          .catch(error => console.error(error))
+     }
+
+     const githubHandler = ()=>{
+          createUserWithGithub(githubProvider)
+          .then(result => {
+               const user = result.user;
+               console.log(user)
+          })
+          .catch(error => console.error(error))
+     }
+
      return (
           <div>
                <div className="hero my-20">
                <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
-                    <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                         <form  className="card-body">
+                    <form onSubmit={singInHandler} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                         <div  className="card-body">
                               <h1 className="text-5xl font-bold">Login now!</h1>
 
                               <div className="form-control">
@@ -29,19 +76,19 @@ const Login = () => {
                               <div className="form-control mt-6">
                                    <button className="btn btn-primary">Login</button>
                               </div>
-                         </form >
+                         </div >
                          <p className='mb-10 text-center'>
                               If new user<Link className='text-orange-600' to='/register'> Create Account </Link>
                          </p>
-                    </div>
+                    </form>
                     <div className="mx-auto">
-                              <button className="flex  btn border-2 rounded-md px-4 py-2 text-center">
-                                   <FaGithub className='mt-1 mx-2'> </FaGithub>
-                                   Sing in with Github
-                              </button>
-                              <button className="flex  btn my-5 border-2 rounded-md px-4 py-2 text-center">
+                              <button onClick={googleHandler} className="flex  btn my-5 border-2 rounded-md px-4 py-2 text-center">
                                    <FaGoogle className='mt-1 mx-2'></FaGoogle>
                                    Sing in with google
+                              </button>
+                              <button onClick={githubHandler} className="flex  btn border-2 rounded-md px-4 py-2 text-center">
+                                   <FaGithub className='mt-1 mx-2'> </FaGithub>
+                                   Sing in with Github
                               </button>
                          </div>
                </div>

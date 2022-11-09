@@ -1,18 +1,36 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/favicon.png'
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const Navbar = () => {
 
+     const { logOutAccount, user } = useContext(AuthContext);
+
+     const logOutHandler = () => {
+          logOutAccount()
+               .then(result => {
+                    alert("log out successfully")
+               })
+               .catch(error => console.log(error))
+     }
 
      const menuItem = <>
           <li> <Link to="/">Home</Link> </li>
           <li> <Link to="/blogs">Blogs</Link> </li>
-          <li> <Link to="/login">Login</Link> </li>
-          <li> <Link to="/register">Register</Link> </li>
-          <li> <Link to="/logout">LogOut</Link> </li>
-          <li> <Link to="/myservices">My services</Link> </li>
-          <li> <Link to="/myreviews">My Reviews</Link> </li>
+          {
+               user?.uid ? <>
+                    <li> <Link onClick={logOutHandler} to="">LogOut</Link> </li>
+                    <li> <Link to="/myservices">My services</Link> </li>
+                    <li> <Link to="/myreviews">My Reviews</Link> </li>
+               </> :
+                    <>
+                         <li> <Link to="/login">Login</Link> </li>
+                         <li> <Link to="/register">Register</Link> </li>
+                    </>
+          }
+
+
      </>
 
      return (
