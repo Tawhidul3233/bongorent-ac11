@@ -1,7 +1,4 @@
 import React from 'react';
-import img1 from '../../../assets/img1.jpg'
-import img2 from '../../../assets/img2.jpg'
-import img3 from '../../../assets/img3.jpg'
 import './Banner.css'
 
 const Banner = () => {
@@ -10,7 +7,7 @@ const Banner = () => {
                <div className="carousel w-full">
                     <div id="slide1" className="carousel-item relative w-full">
                          <div className='img-gradient'>
-                              <img alt='' src={img1} className="w-full" />
+                              <img alt='' src="https://i.ibb.co/TqbYy34/img2.jpg" className="w-full" />
                          </div>
                          <div className="absolute text-center w-4/5 md:w-2/5 md:text-right md:right-24  right-5   transform -translate-y-1/2   top-1/4">
                               <h1 className='text-3xl font-bold text-white'>
@@ -31,7 +28,7 @@ const Banner = () => {
                     </div>
                     <div id="slide2" className="carousel-item relative w-full">
                     <div className='img-gradient'>
-                              <img alt='' src={img2} className="w-full" />
+                              <img alt='' src="https://i.ibb.co/LYhcMpN/img1.jpg" className="w-full" />
                          </div>
                          <div className="absolute text-center w-4/5 md:w-2/5 md:text-right md:right-24  right-5   transform -translate-y-1/2   top-1/4">
                               <h1 className='text-3xl font-bold text-white'>
@@ -52,7 +49,7 @@ const Banner = () => {
                     </div>
                     <div id="slide3" className="carousel-item relative w-full">
                     <div className='img-gradient'>
-                              <img alt='' src={img3} className="w-full" />
+                              <img alt='' src="https://i.ibb.co/1dxyvbp/img3.jpg" className="w-full" />
                          </div>
                          <div className="absolute text-center w-4/5 md:w-2/5 md:text-right md:right-24  right-5   transform -translate-y-1/2  top-1/4">
                               <h1 className='text-3xl font-bold text-white'>

@@ -4,7 +4,7 @@ import { FaThumbsUp, FaCalendarDay, FaMagnet, FaCar } from 'react-icons/fa';
 const SiteStatus = () => {
      return (
           <div className='my-5 '>
-               <h1 className='text-center my-5 text-4xl font-semibold'>Our Services Status</h1>
+               <h1 className='text-center my-5 text-4xl font-semibold'>My Services Status</h1>
                <div className='grid md:grid-cols-4 gap-2'>
                     <div className='  border-4 text-center p-5 rounded-md border-x-indigo-500 border-b-orange-400 border-st'>
                          <FaThumbsUp className='mx-auto ' style={{ width: '100px', height: '100px', color: 'blue' }} ></FaThumbsUp>

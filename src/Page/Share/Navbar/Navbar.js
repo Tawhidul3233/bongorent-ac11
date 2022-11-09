@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../../../assets/favicon.png'
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import toast, { Toaster } from 'react-hot-toast';
 
@@ -47,7 +46,7 @@ const Navbar = () => {
                               </ul>
                          </div>
                          <div className='flex'>
-                              <img style={{ width: '60px' }} alt='' src={logo} />
+                              <img style={{ width: '60px' }} alt='' src="https://i.ibb.co/4Mfnn4d/favicon.png" />
                               <a href="/" className="btn btn-ghost normal-case text-xl">BongoRent</a>
                          </div>
                     </div>
