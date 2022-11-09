@@ -41,7 +41,8 @@ const Register = () => {
           createUserWithGoogle(googleProvider)
           .then(result =>{
                const user = result.user;
-               console.log(user)
+               toast.success('Login Successfully')
+               navigate('/');
           })
           .catch(error => console.error(error))
      }
@@ -50,7 +51,8 @@ const Register = () => {
           createUserWithGithub(githubProvider)
           .then(result => {
                const user = result.user;
-               console.log(user)
+               toast.success('Login Successfully')
+               navigate('/');
           })
           .catch(error => console.error(error))
      }

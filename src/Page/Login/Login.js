@@ -40,7 +40,8 @@ const Login = () => {
           createUserWithGoogle(googleProvider)
           .then(result =>{
                const user = result.user;
-               console.log(user)
+               toast.success('Login Successfully')
+               navigate('/');
           })
           .catch(error => console.error(error))
      }
@@ -49,7 +50,8 @@ const Login = () => {
           createUserWithGithub(githubProvider)
           .then(result => {
                const user = result.user;
-               console.log(user)
+               toast.success('Login Successfully')
+               navigate('/');
           })
           .catch(error => console.error(error))
      }
