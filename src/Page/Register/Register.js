@@ -2,8 +2,8 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/AuthProvider';
-import { Result } from 'postcss';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Register = () => {
 
@@ -27,11 +27,14 @@ const Register = () => {
           createAccountWithEmail(email, password)
           .then(result => {
                const user = result.user;
-               console.log(user)
-               navigate('/')
-               alert('user created')
+               toast.success('Register Successfully')
+               navigate('/');
+               
           })
-          .catch(error => console.error(error));
+          .catch(error => {
+               console.error(error)
+               toast.error('Something wrong check you email and password')
+          });
      }
 
      const googleHandler = ()=>{

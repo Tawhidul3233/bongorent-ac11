@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../../../assets/favicon.png'
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
      const logOutHandler = () => {
           logOutAccount()
                .then(result => {
-                    alert("log out successfully")
+                    toast.success("logOut successfully")
                })
                .catch(error => console.log(error))
      }

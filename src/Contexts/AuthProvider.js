@@ -10,6 +10,7 @@ const AuthProvider = ({children}) => {
      const [user, setUser] = useState();
      const [loading, setLoading] = useState(true)
 
+     
 
      const createAccountWithEmail =(email, password)=>{
           setLoading(true)
@@ -31,13 +32,11 @@ const AuthProvider = ({children}) => {
           return signInWithPopup(auth, provider)
      }
 
-
-
-
      const logOutAccount = ()=>{
           setLoading(true)
           return signOut(auth);
      }
+
 
 
      useEffect(()=>{
