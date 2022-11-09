@@ -1,11 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import logo from '../../../assets/favicon.png'
 
 const Navbar = () => {
 
-     
+
      const menuItem = <>
-          <li> <a href="/">Home</a> </li>
+          <li> <Link to="/">Home</Link> </li>
+          <li> <Link to="/blogs">Blogs</Link> </li>
+          <li> <Link to="/login">Login</Link> </li>
+          <li> <Link to="/register">Register</Link> </li>
+          <li> <Link to="/logout">LogOut</Link> </li>
+          <li> <Link to="/myservices">My services</Link> </li>
+          <li> <Link to="/myreviews">My Reviews</Link> </li>
      </>
 
      return (
@@ -20,7 +27,10 @@ const Navbar = () => {
                                    {menuItem}
                               </ul>
                          </div>
-                         <a href="/" className="btn btn-ghost normal-case text-xl">daisyUI</a>
+                         <div className='flex'>
+                              <img style={{ width: '60px' }} alt='' src={logo} />
+                              <a href="/" className="btn btn-ghost normal-case text-xl">BongoRent</a>
+                         </div>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                          <ul className="menu menu-horizontal p-0">
