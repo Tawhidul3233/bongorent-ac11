@@ -29,7 +29,7 @@ const AddServices = () => {
                details,
           }
           // send object to mongodb database
-          fetch('http://localhost:5000/allservices',{
+          fetch('https://bongorent-server.vercel.app/allservices',{
                method: 'POST',
                headers:{
                     'content-type':"application/json"

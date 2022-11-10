@@ -45,7 +45,7 @@ import PrivateRouts from '../PrivateRoute/PrivateRouts';
                          path:'/servicesdetails/:id',
                          element: <ServicesDetails> </ServicesDetails>,
                          loader: ({params})=>{
-                              return fetch(`http://localhost:5000/servicesdetails/${params.id}`)
+                              return fetch(`https://bongorent-server.vercel.app/servicesdetails/${params.id}`)
                          }
                     }
                ]

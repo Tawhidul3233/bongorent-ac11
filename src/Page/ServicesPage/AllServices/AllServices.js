@@ -9,7 +9,7 @@ const AllServices = () => {
       
      // useing  useEffect to loade data from api
      useEffect(()=>{
-          fetch('http://localhost:5000/allservices')
+          fetch('https://bongorent-server.vercel.app/allservices')
           .then(res => res.json())
           .then(data => setAllServices(data))
      },[])
