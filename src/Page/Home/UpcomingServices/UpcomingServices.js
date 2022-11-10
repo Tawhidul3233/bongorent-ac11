@@ -3,6 +3,8 @@ import 'react-photo-view/dist/react-photo-view.css';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 
 
+// add extra option  upcoming services
+
 const UpcomingServices = () => {
      return (
           <div>
@@ -15,9 +17,6 @@ const UpcomingServices = () => {
                                    <img src="https://i.ibb.co/Tr6mNkV/biman.jpg" alt="" />
                               </PhotoView>
                          </PhotoProvider>
-                         {/* <PhotoView>
-                              <img src="https://i.ibb.co/QHLm1cJ/lonce.jpg" alt="" />
-                         </PhotoView> */}
                          <div className='p-5'>
                               <h3 className='text-3xl font-semibold'>Biman Service </h3>
                               <p className=''>Biman serves over 5 domestic and more than 15 international destinations across several countries in the Middle East, some destinations in South and South East Asia and in Europe. However, it has air service agreements with 43 countries in the future. Biman has been the only Bangladeshi airline allowed by the government to offer.</p>

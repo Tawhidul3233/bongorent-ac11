@@ -3,15 +3,11 @@ import { FaForward } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import useTitle from '../../../HookTitle/useTitle';
 
+// add servces part design and photoview opiton 
 const Service = ({ service }) => {
-     const {loading, setLoading} = useContext(AuthContext)
      const { title, _id, rating, details, price, available, Booked, thumbnail_url } = service
-
-     setLoading(true)
-     if(loading){
-          return <div className='text-center my-64'><button className="btn loading ">loading</button></div>
-     }
 
      return (
           <div className='my-5'>

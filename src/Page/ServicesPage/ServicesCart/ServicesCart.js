@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaForward } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
+import useTitle from '../../../HookTitle/useTitle';
 
+
+// services cart design and daynamical contant display
 const ServicesCart = ({ service }) => {
+     useTitle('Services')
      const { title, _id, rating, details, price, available, Booked, thumbnail_url } = service
+     
      return (
           <div className='my-5'>
                <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -25,7 +30,6 @@ const ServicesCart = ({ service }) => {
                               <p className=''> Available : {available}</p>
                               <p className=''> Booked : {Booked}</p>
                               <Link to={`/servicesdetails/${_id}`}>
-                                   {console.log(_id)}
                                    <button className="btn btn-primary">View Details <FaForward className='ml-2'> </FaForward> </button>
                               </Link>
                          </div>

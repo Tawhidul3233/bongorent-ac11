@@ -4,19 +4,23 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../HookTitle/useTitle';
 
 const Register = () => {
-
+     useTitle('Register')
      const {createAccountWithEmail,
           createUserWithGithub,
           loading,
            createUserWithGoogle } = useContext(AuthContext)
 
+          //  create google and github auth provider
      const googleProvider = new GoogleAuthProvider();
      const githubProvider = new GithubAuthProvider();
 
+          // use navigate to send user another page
      const navigate = useNavigate()
 
+     // if page data loading than show loading button
      if(loading){
           return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
      }

@@ -1,10 +1,12 @@
 import { fromJSON } from 'postcss';
 import React from 'react';
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../HookTitle/useTitle';
+
+
 
 const AddServices = () => {
-
-
+     useTitle('AddServices')
      const serviceSubmitHandler = (event) => {
           event.preventDefault()
           const form = event.target;
@@ -16,6 +18,7 @@ const AddServices = () => {
           const email = form.email.value;
           const details = form.details.value;
 
+          // make a object 
           const services={
                title,
                price,
@@ -25,7 +28,7 @@ const AddServices = () => {
                email,
                details,
           }
-          console.log(services)
+          // send object to mongodb database
           fetch('http://localhost:5000/allservices',{
                method: 'POST',
                headers:{
@@ -36,6 +39,7 @@ const AddServices = () => {
           .then(res => res.json())
           .then(data => {
                console.log(data)
+               // added toast if user successfully submit his services then notify this toast
                toast.success('Service add successfylly Go all services option and check')
                form.reset()
           })

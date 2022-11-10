@@ -15,6 +15,8 @@ const Navbar = () => {
                .catch(error => console.log(error))
      }
 
+     // condational navber if user not login navbar show home, blogs, add services, login, register . if user login than show extra option my services , my review and log out option.
+     
      const menuItem = <>
           <li> <Link to="/">Home</Link> </li>
           <li> <Link to="/blogs">Blogs</Link> </li>

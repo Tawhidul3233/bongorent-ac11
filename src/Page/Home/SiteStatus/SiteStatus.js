@@ -1,6 +1,7 @@
 import React from 'react';
 import { FaThumbsUp, FaCalendarDay, FaMagnet, FaCar } from 'react-icons/fa';
 
+// extra section add siteStatus and customer statistics
 const SiteStatus = () => {
      return (
           <div className='my-5 '>

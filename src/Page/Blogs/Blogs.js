@@ -1,6 +1,9 @@
 import React from 'react';
+import useTitle from '../../HookTitle/useTitle';
 
+// blogs part 4 question answer using table 
 const Blogs = () => {
+     useTitle('Blog')
      return (
           <div className='m-5'>
                <div className=''>

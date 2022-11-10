@@ -11,6 +11,7 @@ import ServicesDetails from '../../Page/ServicesPage/ServicesDetails/ServicesDet
 import PrivateRouts from '../PrivateRoute/PrivateRouts';
 
 
+// one page web application router setup and loader
      const router = createBrowserRouter([
           {
                path:'/',
@@ -33,7 +34,7 @@ import PrivateRouts from '../PrivateRoute/PrivateRouts';
                          element: <Blogs></Blogs>
                     },
                     {
-                         path:'services',
+                         path:'/services',
                          element: <AllServices> </AllServices>
                     },
                     {
@@ -43,13 +44,12 @@ import PrivateRouts from '../PrivateRoute/PrivateRouts';
                     {
                          path:'/servicesdetails/:id',
                          element: <ServicesDetails> </ServicesDetails>,
-                         loader: (params)=>{
+                         loader: ({params})=>{
                               return fetch(`http://localhost:5000/servicesdetails/${params.id}`)
                          }
                     }
                ]
           }
      ])
-
 
 export default router;

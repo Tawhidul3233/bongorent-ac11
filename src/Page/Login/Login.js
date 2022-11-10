@@ -4,22 +4,26 @@ import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import toast, { Toaster } from 'react-hot-toast';
+import useTitle from '../../HookTitle/useTitle';
 
 
 const Login = () => {
-
+     useTitle('Login')
      const {lgoinAccountWithEmail,
            createUserWithGoogle,
                user, loading,
             createUserWithGithub} = useContext(AuthContext)
 
+     // make a google provider and github provider
      const googleProvider =new GoogleAuthProvider();
      const githubProvider = new GithubAuthProvider();
 
      const navigate = useNavigate()
+     // using location to go uer current targeted location
      const location = useLocation()
      const from = location.state?.from?.pathname || '/'
 
+     // if page is loading than loader icon show
      if(loading){
           return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
      }

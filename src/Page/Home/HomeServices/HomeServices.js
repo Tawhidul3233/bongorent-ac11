@@ -7,15 +7,18 @@ import Service from '../Service/Service';
 
 
 const HomeServices = () => {
-
+     const {loading } = useContext(AuthContext)
      const [services, setServices] = useState([])
-
+// loade data from api and show daynimacly
      useEffect(() => {
           fetch('http://localhost:5000/services')
                .then(res => res.json())
                .then(data => setServices(data))
      }, [])
 
+     if(loading){
+          return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
+     }
 
      return (
           <div className=''>

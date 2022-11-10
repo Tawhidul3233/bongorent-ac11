@@ -1,6 +1,7 @@
 import React from 'react';
 import './Banner.css'
 
+// banner slider part added hardcoded content 
 const Banner = () => {
      return (
           <div>
