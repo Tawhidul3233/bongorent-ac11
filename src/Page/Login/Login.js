@@ -10,7 +10,7 @@ const Login = () => {
 
      const {lgoinAccountWithEmail,
            createUserWithGoogle,
-               user,
+               user, loading,
             createUserWithGithub} = useContext(AuthContext)
 
      const googleProvider =new GoogleAuthProvider();
@@ -19,6 +19,10 @@ const Login = () => {
      const navigate = useNavigate()
      const location = useLocation()
      const from = location.state?.from?.pathname || '/'
+
+     if(loading){
+          return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
+     }
 
      const singInHandler = (event)=>{
           event.preventDefault();

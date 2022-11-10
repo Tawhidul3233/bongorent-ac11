@@ -1,6 +1,7 @@
 import { linkWithCredential } from 'firebase/auth';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 import Service from '../Service/Service';
 
 

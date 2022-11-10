@@ -8,7 +8,7 @@ const PrivateRouts = ({children}) => {
      const location = useLocation()
 
      if(loading){
-          return 'Loading'
+          return <div className='text-center my-64'><button className="btn loading ">loading</button></div>
      }
      if(!user){
           return <Navigate to='/login' state={{from: location}} replace></Navigate>

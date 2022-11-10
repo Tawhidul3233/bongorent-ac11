@@ -7,6 +7,7 @@ import Home from '../../Page/Home/Home/Home';
 import Login from '../../Page/Login/Login';
 import Register from '../../Page/Register/Register';
 import AllServices from '../../Page/ServicesPage/AllServices/AllServices';
+import ServicesDetails from '../../Page/ServicesPage/ServicesDetails/ServicesDetails';
 import PrivateRouts from '../PrivateRoute/PrivateRouts';
 
 
@@ -38,6 +39,13 @@ import PrivateRouts from '../PrivateRoute/PrivateRouts';
                     {
                          path:'/addservices',
                          element: <PrivateRouts> <AddServices> </AddServices> </PrivateRouts>
+                    },
+                    {
+                         path:'/servicesdetails/:id',
+                         element: <ServicesDetails> </ServicesDetails>,
+                         loader: (params)=>{
+                              return fetch(`http://localhost:5000/servicesdetails/${params.id}`)
+                         }
                     }
                ]
           }

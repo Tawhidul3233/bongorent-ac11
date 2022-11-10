@@ -24,7 +24,8 @@ const ServicesCart = ({ service }) => {
                          <div className="card-actions justify-end flex items-center my-3">
                               <p className=''> Available : {available}</p>
                               <p className=''> Booked : {Booked}</p>
-                              <Link to="/servicesdetails">
+                              <Link to={`/servicesdetails/${_id}`}>
+                                   {console.log(_id)}
                                    <button className="btn btn-primary">View Details <FaForward className='ml-2'> </FaForward> </button>
                               </Link>
                          </div>

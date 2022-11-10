@@ -1,10 +1,17 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaForward } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const Service = ({ service }) => {
+     const {loading, setLoading} = useContext(AuthContext)
      const { title, _id, rating, details, price, available, Booked, thumbnail_url } = service
+
+     setLoading(true)
+     if(loading){
+          return <div className='text-center my-64'><button className="btn loading ">loading</button></div>
+     }
 
      return (
           <div className='my-5'>
@@ -25,7 +32,7 @@ const Service = ({ service }) => {
                          <div className="card-actions justify-end flex items-center my-3">
                               <p className=''> Available : {available}</p>
                               <p className=''> Booked : {Booked}</p>
-                              <Link to="/servicesdetails">
+                              <Link to={`/servicesdetails/${_id}`}>
                                    <button className="btn btn-primary">View Details <FaForward className='ml-2'> </FaForward> </button>
                               </Link>
                          </div>

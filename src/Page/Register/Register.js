@@ -9,12 +9,17 @@ const Register = () => {
 
      const {createAccountWithEmail,
           createUserWithGithub,
+          loading,
            createUserWithGoogle } = useContext(AuthContext)
 
      const googleProvider = new GoogleAuthProvider();
      const githubProvider = new GithubAuthProvider();
 
      const navigate = useNavigate()
+
+     if(loading){
+          return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
+     }
 
      const submitRegister = (event)=>{
           event.preventDefault();
