@@ -1,11 +1,10 @@
 import React from 'react';
 import { FaForward } from 'react-icons/fa';
-import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
 
-const Service = ({ service }) => {
+const ServicesCart = ({ service }) => {
      const { title, _id, rating, details, price, available, Booked, thumbnail_url } = service
-
      return (
           <div className='my-5'>
                <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -35,4 +34,4 @@ const Service = ({ service }) => {
      );
 };
 
-export default Service;
+export default ServicesCart;

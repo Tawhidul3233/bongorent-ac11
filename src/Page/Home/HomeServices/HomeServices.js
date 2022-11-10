@@ -28,7 +28,7 @@ const HomeServices = () => {
                     }
                </div>
                <div className='text-center my-5'>
-                    <Link to='/allservices'>
+                    <Link to='/services'>
                          <button className="btn btn-primar mb-5 px-5">See all Services</button>
                     </Link>
                </div>

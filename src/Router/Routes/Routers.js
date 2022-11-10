@@ -5,6 +5,7 @@ import Blogs from '../../Page/Blogs/Blogs';
 import Home from '../../Page/Home/Home/Home';
 import Login from '../../Page/Login/Login';
 import Register from '../../Page/Register/Register';
+import AllServices from '../../Page/ServicesPage/AllServices/AllServices';
 
 
      const router = createBrowserRouter([
@@ -27,6 +28,10 @@ import Register from '../../Page/Register/Register';
                     {
                          path:'/blogs',
                          element: <Blogs></Blogs>
+                    },
+                    {
+                         path:'services',
+                         element: <AllServices> </AllServices>
                     }
                ]
           }
