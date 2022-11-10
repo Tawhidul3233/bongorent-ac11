@@ -18,11 +18,12 @@ const Navbar = () => {
      const menuItem = <>
           <li> <Link to="/">Home</Link> </li>
           <li> <Link to="/blogs">Blogs</Link> </li>
+          <li> <Link to="/addservices">Add Services</Link> </li>
           {
                user?.uid ? <>
-                    <li> <Link onClick={logOutHandler} to="">LogOut</Link> </li>
                     <li> <Link to="/myservices">My services</Link> </li>
                     <li> <Link to="/myreviews">My Reviews</Link> </li>
+                    <li> <Link onClick={logOutHandler} to="">LogOut</Link> </li>
                </> :
                     <>
                          <li> <Link to="/login">Login</Link> </li>
@@ -56,7 +57,9 @@ const Navbar = () => {
                          </ul>
                     </div>
                     <div className="navbar-end">
-                         <a href="/" className="btn">Get started</a>
+                         <Link to='/services'>
+                              <a href="/" className="btn"> Make Easy your Journy</a>
+                         </Link>
                     </div>
                </div>
           </div>

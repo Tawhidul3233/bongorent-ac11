@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGithub, FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Contexts/AuthProvider';
 import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
@@ -10,13 +10,15 @@ const Login = () => {
 
      const {lgoinAccountWithEmail,
            createUserWithGoogle,
-
+               user,
             createUserWithGithub} = useContext(AuthContext)
 
      const googleProvider =new GoogleAuthProvider();
      const githubProvider = new GithubAuthProvider();
 
      const navigate = useNavigate()
+     const location = useLocation()
+     const from = location.state?.from?.pathname || '/'
 
      const singInHandler = (event)=>{
           event.preventDefault();
@@ -28,7 +30,9 @@ const Login = () => {
           .then(result => {
                const user = result.user;
                toast.success('Login Successfully')
-               navigate('/');
+               if(user?.uid){
+                    navigate(from, {replace:true})
+               }
           })
           .catch(error => {
                console.error(error)
@@ -41,7 +45,10 @@ const Login = () => {
           .then(result =>{
                const user = result.user;
                toast.success('Login Successfully')
-               navigate('/');
+               if(user?.uid){
+                    navigate(from, {replace:true})
+               }
+               
           })
           .catch(error => console.error(error))
      }
@@ -51,7 +58,9 @@ const Login = () => {
           .then(result => {
                const user = result.user;
                toast.success('Login Successfully')
-               navigate('/');
+               if(user?.uid){
+                    navigate(from, {replace:true})
+               }
           })
           .catch(error => console.error(error))
      }
