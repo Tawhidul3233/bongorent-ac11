@@ -21,7 +21,7 @@ const AllServices = () => {
 
      // map allservices to send data servicescart useing params
      return (
-          <div className='grid md:grid-cols-3'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mx-3'>
                {
                     allServices.map(service => <ServicesCart
                     key={service._id}

@@ -58,7 +58,7 @@ const Navbar = () => {
                               {menuItem}
                          </ul>
                     </div>
-                    <div className="navbar-end">
+                    <div className="navbar-end hidden md:inline-flex">
                          <Link to='/services'>
                               <a href="/" className="btn"> Make Easy your Journy</a>
                          </Link>

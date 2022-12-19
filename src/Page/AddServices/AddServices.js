@@ -52,7 +52,7 @@ const AddServices = () => {
           <div className='m-5'>
                <h1 className='my-5 text-3xl font-semibold'> Create New Services</h1>
                <form onSubmit={serviceSubmitHandler} className='grid  gap-4' action="">
-                    <d className='grid gap-4 md:grid-cols-2'>
+                    <div className='grid gap-4 md:grid-cols-2'>
                          <input className=' border-2 p-2' name='title' type="text" placeholder='Services Name' required />
 
                          <input className=' border-2 p-2' name='price' type="text" placeholder='Price$'  required />
@@ -65,7 +65,7 @@ const AddServices = () => {
 
                          <input className=' border-2 p-2' name='email' type="text" placeholder='Email' required />
 
-                    </d>
+                    </div>
                     <textarea className='border-2 p-4' name="details" id="" cols="30" rows="10" placeholder='Details'></textarea>
                     <div className='text-center'>
                          <div className="form-control my-6">

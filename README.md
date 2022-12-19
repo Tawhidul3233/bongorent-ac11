@@ -1,3 +1,14 @@
+
+
+live site: https://bongorent-96f21.web.app
+
+1. using resct react router dom 
+2. desigin using tailwint 
+3. using mongodb 
+4. using vercal
+5. us
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

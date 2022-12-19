@@ -8,7 +8,7 @@ import { PhotoProvider, PhotoView } from 'react-photo-view';
 const UpcomingServices = () => {
      return (
           <div>
-               <h2 className='text-center text-4xl font-semibold my-5'>Display upcoming Services</h2>
+               <h2 className='text-center text-2xl font-semibold my-5'>Display upcoming Services</h2>
                <p className='mx-auto text-center w-3/5'> We will start Biman Service and Launch Service . You Want to Know Dhaka to Barishal Launch Ticket Price or Dhaka to Barishal Launch Schedule? Yes! you get all information about Barishal to Dhaka launch schedule in this post.</p>
                <div className='grid md:grid-cols-2 gap-5 m-5'>
                     <div className=' border-2 rounded-md'>

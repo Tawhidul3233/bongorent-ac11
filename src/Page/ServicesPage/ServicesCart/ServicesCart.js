@@ -12,7 +12,7 @@ const ServicesCart = ({ service }) => {
      
      return (
           <div className='my-5'>
-               <div className="card card-compact w-96 bg-base-100 shadow-xl">
+               <div className="card border ">
                     <figure>
                          <PhotoProvider>
                               <PhotoView src={thumbnail_url}>
