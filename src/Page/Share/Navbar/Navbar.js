@@ -24,7 +24,7 @@ const Navbar = () => {
           {
                user?.uid ? <>
                     <li> <Link to="/myservices">My services</Link> </li>
-                    <li> <Link to="/myreviews">My Reviews</Link> </li>
+                    <li> <Link to="/myreviews">My Booking</Link> </li>
                     <li> <Link onClick={logOutHandler} to="">LogOut</Link> </li>
                </> :
                     <>

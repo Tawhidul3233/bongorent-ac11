@@ -11,7 +11,7 @@ const Login = () => {
      useTitle('Login')
      const {lgoinAccountWithEmail,
            createUserWithGoogle,
-               user, loading,
+               user, loading, setloading,
             createUserWithGithub} = useContext(AuthContext)
 
      // make a google provider and github provider
@@ -24,9 +24,9 @@ const Login = () => {
      const from = location.state?.from?.pathname || '/'
 
      // if page is loading than loader icon show
-     if(loading){
-          return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
-     }
+     // if(loading){
+     //      return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
+     // }
 
      const singInHandler = (event)=>{
           event.preventDefault();
@@ -45,6 +45,7 @@ const Login = () => {
           .catch(error => {
                console.error(error)
                toast.error('Something wrong check you email and password')
+               // setloading(false)
           });
      }
 
@@ -77,7 +78,7 @@ const Login = () => {
           <div>
                <div className="hero my-20">
                <div className="hero-content grid md:grid-cols-2 flex-col lg:flex-row">
-                    <form onSubmit={singInHandler} className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
+                    <form onSubmit={singInHandler} className="card flex-shrink-0 w-full max-w-sm border-2 border-y-cyan-700 bg-base-100">
                          <div  className="card-body">
                               <h1 className="text-5xl font-bold">Login now!</h1>
 
@@ -91,7 +92,7 @@ const Login = () => {
                                    <label className="label">
                                         <span className="label-text">Password</span>
                                    </label>
-                                   <input type="text" name='password' placeholder="password" className="input input-bordered" required />
+                                   <input type="password" name='password' placeholder="password" className="input input-bordered" required />
                                    <label className="label">
                                         <a href="/" className="label-text-alt link link-hover">Forgot password?</a>
                                    </label>

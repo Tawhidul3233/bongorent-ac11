@@ -11,7 +11,7 @@ const Service = ({ service }) => {
 
      return (
           <div className='my-5'>
-               <div className="card bg-base-100 shadow-xl">
+               <div className="card bg-base-100 border">
                     <figure>
                          <PhotoProvider>
                               <PhotoView src={thumbnail_url}>
@@ -28,8 +28,10 @@ const Service = ({ service }) => {
                          <div className="card-actions justify-end flex items-center my-3">
                               <p className=''> Available : {available}</p>
                               <p className=''> Booked : {Booked}</p>
+                         </div>
+                         <div className='mx-auto'>
                               <Link to={`/servicesdetails/${_id}`}>
-                                   <button className="btn btn-primary">View Details <FaForward className='ml-2'> </FaForward> </button>
+                                   <button className="btn btn-sm btn-primary">View Details <FaForward className='ml-2'> </FaForward> </button>
                               </Link>
                          </div>
                     </div>

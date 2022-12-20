@@ -15,13 +15,13 @@ const AllServices = () => {
      },[])
 
      
-     if(loading){
-          return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
-     }
+     // if(loading){
+     //      return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
+     // }
 
      // map allservices to send data servicescart useing params
      return (
-          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mx-3'>
+          <div className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 mx-3 '>
                {
                     allServices.map(service => <ServicesCart
                     key={service._id}

@@ -8,7 +8,7 @@ const ServicesDetails = () => {
      const { user } = useContext(AuthContext)
 
      const [comment, setComment] = useState([])
-     
+
      const { title, _id, rating, details,
           price, available, Booked, thumbnail_url } = useLoaderData()
 
@@ -16,17 +16,16 @@ const ServicesDetails = () => {
      const commentHandler = (event) => {
           event.preventDefault()
           const form = event.target;
-          const email = form.email.value;
           const comments = form.comment.value;
-          const name = form.name.value;
-          const photo = form.photo.vlaue;
 
           const comment = {
-               name,
-               email,
-               photo,
-               comments
+               name: user?.displayName,
+               email: user?.email,
+               photo: user?.photoURL,
+               comments,
+               id: _id
           }
+
           fetch('https://bongorent-server.vercel.app/comments', {
                method: "POST",
                headers: {
@@ -37,6 +36,8 @@ const ServicesDetails = () => {
                .then(res => res.json())
                .then(data => {
                     toast.success("comment added")
+                    form.reset()
+                    console.log(data)
                })
                .catch(err => console.error(err))
      }
@@ -49,27 +50,31 @@ const ServicesDetails = () => {
      }, [])
 
      return (
-          <div className='m-5 grid md:grid-cols-2'>
+          <div className='md:m-5 grid md:grid-cols-2'>
                <div className=' border-x-4 rounded-md'>
                     <div>
                          <img src={thumbnail_url} alt="" />
                     </div>
-                    <div className="card-body">
-                         <div className=' bg-sky-400 p-5 rounded-md'>
-                              <div className='flex  text-end items-center mb-3'>
-                                   <h2 className="card-title text-2xl">{title}</h2>
-                                   <p className='text-3xl font-semibold text-white'>{price}</p>
+                    <div className="">
+                         <div className=' bg-sky-400 p-5 sm:flex justify-between items-center '>
+                              <div >
+                                   <div className='flex text-end items-center mb-3'>
+                                        <h2 className="card-title text-lg">{title}: </h2>
+                                        <p className='text-xl ml-2 font-semibold text-white'>{price}</p>
+                                   </div>
+                                   <div className="card-actions  ">
+                                        <p className='text-lg font-semibold'> Available : {available}</p>
+                                        <p className='text-lg font-semibold'> Booked : {Booked}</p>
+                                   </div>
                               </div>
-                              <div className="card-actions  justify-end flex items-center my-3">
-                                   <p className='text-xl font-semibold'> Available : {available}</p>
-                                   <p className='text-xl font-semibold'> Booked : {Booked}</p>
+                              <div className='mt-3'>
                                    <Link to={`/servicesdetails/${_id}`}>
-                                        <button className="btn btn-primary">Book Now</button>
+                                        <button className="btn btn-sm md:btn-md btn-primary">Book Now</button>
                                    </Link>
                               </div>
                          </div>
                          <div>
-                              <p>{details}</p>
+                              <p className='p-3'>{details}</p>
                          </div>
                     </div>
                </div>
@@ -78,17 +83,12 @@ const ServicesDetails = () => {
                     {
                          user?.uid ?
                               <form onSubmit={commentHandler} className='grid  gap-4' action="">
-                                   <div className='grid gap-4 md:grid-cols-2 text-center'>
+                                   
 
-                                        <input className=' border-2 p-2' name='name' type="text" placeholder='name' />
-                                        <input className=' border-2 p-2' name='email' type="text" placeholder='Email' defaultValue={user?.email} />
-
-                                   </div>
-                                   <input className=' border-2 p-2' name='photo' type="text" placeholder='photo url' />
-                                   <textarea className='border-2 p-4' name="comment" id="" cols="30" rows="10" placeholder='Comment'></textarea>
+                                   <textarea className='border-2 p-4 mt-5 md:mt-0 mx-2 md:mx-0' name="comment" id="" cols="30" rows="10" placeholder='Comment'></textarea>
                                    <div className='text-center'>
                                         <div className="form-control my-6">
-                                             <button className="btn btn-primary">Add your comment</button>
+                                             <button className="btn btn-primary mx-2 md:mx-0">Add your comment</button>
                                         </div>
                                    </div>
                               </form> :
@@ -101,23 +101,38 @@ const ServicesDetails = () => {
                               </div>
                     }
                     <div>
-                         
+
                          {
                               comment.map(com => <div key={com._id}
-                              className="m-5"
+                                   className="m-5"
                               >
-                                   <div className='flex'>
-                                        <div className=' rounded-lg' style={{width:'50px'}}>
-                                             <img src={com.photo} alt="" />
+                                   {
+                                        com?.id === _id &&
+                                        <div>
+                                             <div className='flex'>
+                                                  {
+                                                       com?.photo ?
+                                                            <div style={{ width: '50px' }}>
+
+                                                                 <img className=' rounded-full' src={com?.photo} alt="" />
+
+                                                            </div> :
+                                                            <div style={{ width: '50px' }}>
+
+                                                                 <img src='https://i.ibb.co/GC5Zm7T/image-removebg-preview-4.png' alt="" />
+
+                                                            </div>
+                                                  }
+                                                  <div className='ml-3'>
+                                                       <h1 className='text-lg font-semibold text-left'>{com?.name}</h1>
+                                                       <h1 className=' text-xs'>{com?.email}</h1>
+                                                  </div>
+                                             </div>
+                                             <div className=' text-left'>
+                                                  Comment: {com?.comments}
+                                             </div>
                                         </div>
-                                        <div className='ml-3'>
-                                             <h1 className='text-xl font-semibold'>{com.name}</h1>
-                                             <h1>{com.email}</h1>
-                                        </div>
-                                   </div>
-                                   <div>
-                                        Comment: {com.comments}
-                                   </div>
+                                   }
                               </div>)
                          }
                     </div>

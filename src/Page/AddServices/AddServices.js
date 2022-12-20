@@ -50,7 +50,7 @@ const AddServices = () => {
 
      return (
           <div className='m-5'>
-               <h1 className='my-5 text-3xl font-semibold'> Create New Services</h1>
+               <h1 className='my-5 text-2xl font-semibold'> Create New Services</h1>
                <form onSubmit={serviceSubmitHandler} className='grid  gap-4' action="">
                     <div className='grid gap-4 md:grid-cols-2'>
                          <input className=' border-2 p-2' name='title' type="text" placeholder='Services Name' required />

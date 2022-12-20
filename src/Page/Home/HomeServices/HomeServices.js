@@ -16,9 +16,9 @@ const HomeServices = () => {
                .then(data => setServices(data))
      }, [])
 
-     if (loading) {
-          return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
-     }
+     // if (loading) {
+     //      return <div className='text-center my-60'><button className="btn loading ">loading</button></div>
+     // }
 
      return (
           <div className='mx-3'>

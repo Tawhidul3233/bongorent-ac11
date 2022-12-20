@@ -47,9 +47,14 @@ import PrivateRouts from '../PrivateRoute/PrivateRouts';
                          loader: ({params})=>{
                               return fetch(`https://bongorent-server.vercel.app/servicesdetails/${params.id}`)
                          }
+                    },
+                    {
+                         path:"*",
+                         element: <h1 className=' h-screen items-center flex justify-center'> This Page is Not Found </h1>
                     }
                ]
-          }
+          },
+     
      ])
 
 export default router;
